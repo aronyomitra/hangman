@@ -11,3 +11,29 @@ body {
 div#sketch {
   text-align: center;
 }
+
+div#win, div#lose {
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 0;
+  background-color: rgb(200, 200, 200, 0.9);
+
+  width: 100%;
+  padding: 0 0 10px 0;
+
+  text-align: center;
+  display: none;
+}
+
+button.reset-button {
+  border: none;
+  font-size: 20px;
+  padding: 10px;
+  background-color: white;
+  cursor: pointer;
+}
+
+p#correct-word {
+  letter-spacing: 10px;
+}

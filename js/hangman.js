@@ -77,12 +77,15 @@ function draw()
 
   if (lives == 0)
   {
-    //Display losing message
+    document.getElementById("lose").style.display = "block";
+    document.getElementById('correct-word').innerHTML = word.join('');
+    noLoop();
   }
 
   if (!wordProgress.includes('_'))
   {
-    //Display winning message
+    document.getElementById('win').style.display = 'block';
+    noLoop();
   }
 }
 
@@ -112,4 +115,20 @@ function keyTyped()
       }
     }
   }
+}
+
+function resetGame()
+{
+  lives = 10;
+  usedLetters = [];
+  word = ['H', 'A', 'N', 'G', 'M', 'A', 'N'];
+  wordProgress = [];
+  word.forEach(function() {
+    wordProgress.push('_')
+  });
+  wordProgress_Str = wordProgress.join(' ');
+
+  document.getElementById('win').style.display = "none";
+  document.getElementById('lose').style.display = "none";
+  loop();
 }
