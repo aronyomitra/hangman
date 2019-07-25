@@ -4,7 +4,8 @@ let canvas;
 
 let lives = 10;
 let usedLetters = [];
-let word = ['H', 'A', 'N', 'G', 'M', 'A', 'N'];
+let word;
+getWord();
 wordProgress = [];
 word.forEach(function() {
   wordProgress.push('_')
@@ -121,7 +122,7 @@ function resetGame()
 {
   lives = 10;
   usedLetters = [];
-  word = ['H', 'A', 'N', 'G', 'M', 'A', 'N'];
+  getWord();
   wordProgress = [];
   word.forEach(function() {
     wordProgress.push('_')
@@ -131,4 +132,11 @@ function resetGame()
   document.getElementById('win').style.display = "none";
   document.getElementById('lose').style.display = "none";
   loop();
+}
+
+function getWord()
+{
+  let rnd = Math.floor(Math.random()*wordList.length);
+  let rndWord = wordList[rnd];
+  word = rndWord.split('');
 }
