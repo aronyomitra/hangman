@@ -2,13 +2,14 @@ let canvas_size = [1000, 500];
 
 let canvas;
 
+let lives = 10;
 let usedLetters = [];
 let word = ['H', 'A', 'N', 'G', 'M', 'A', 'N'];
 wordProgress = [];
 word.forEach(function() {
   wordProgress.push('_')
 });
-wordProgress = wordProgress.join(' ');
+let wordProgress_Str = wordProgress.join(' ');
 
 function setup()
 {
@@ -19,19 +20,20 @@ function setup()
 
   background(255);
   stroke (0);
-  textSize(50);
+  textSize(25);
   textAlign (LEFT, BOTTOM);
   textFont("Monospace");
 }
 
 function dislplayWord()
 {
-  text (wordProgress, 100, 100);
+  wordProgress_Str = wordProgress.join(' ');
+  text (wordProgress_Str, 50, 100);
 }
 
 function showAvailable()
 {
-  let start_x = 100; let start_y = 240;
+  let start_x = 50; let start_y = 240;
   let currentX = start_x; let currentY = start_y;
 
   let count = 0;
@@ -71,6 +73,17 @@ function draw()
 
   dislplayWord();
   showAvailable();
+  text ("Lives: " + lives, 50, 500);
+
+  if (lives == 0)
+  {
+    //Display losing message
+  }
+
+  if (!wordProgress.includes('_'))
+  {
+    //Display winning message
+  }
 }
 
 function keyTyped()
@@ -83,6 +96,20 @@ function keyTyped()
     if (!usedLetters.includes(ch))
     {
       usedLetters.push(ch);
+      if (word.includes(ch))
+      {
+        for (let i = 0; i < word.length; i++)
+        {
+          if (word[i] == ch)
+          {
+            wordProgress[i] = ch;
+          }
+        }
+      }
+      else
+      {
+        lives--;
+      }
     }
   }
 }
