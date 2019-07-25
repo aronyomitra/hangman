@@ -140,3 +140,15 @@ function getWord()
   let rndWord = wordList[rnd];
   word = rndWord.split('');
 }
+
+function fs()
+{
+  if (document.fullscreen == true)
+  {
+    document.exitFullscreen();
+  }
+  else
+  {
+    document.documentElement.requestFullscreen();
+  }
+}

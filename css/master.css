@@ -37,3 +37,12 @@ button.reset-button {
 p#correct-word {
   letter-spacing: 10px;
 }
+
+div.fullscreen-btn {
+  background-color: (255, 255, 255, 0.1);
+  position: fixed;
+  top: 20px;
+  right: 10px;
+  cursor: pointer;
+  user-select: none;
+}
